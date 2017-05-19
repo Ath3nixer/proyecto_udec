@@ -46,9 +46,9 @@ Route::get('/',function(){
 */
 //vali
 
-
+//
 //Route::get('auth/login',function(){
-//return view('auth.login');
+//    return view('auth.login');
 //});
 
 
@@ -242,3 +242,7 @@ Route::get('cuentas', 'CuentaController@create');
 //Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

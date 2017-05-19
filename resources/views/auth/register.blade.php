@@ -59,7 +59,28 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+                        @if (Auth::User())
+                            @if(Auth::User()->role == 'admin')
+                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                    <label for="Role" class="col-md-4 control-label">Rol</label>
 
+                                    <div class="col-md-6">
+                                        <select id="role" class="form-control" name="role" required>
+                                            <option value="admin">Administrador</option>
+                                            <option value="lider">Lider</option>
+                                            <option value="monitor">Monitor</option>
+                                        </select>
+
+                                        @if ($errors->has('password'))
+                                            <span class="help-block">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endif
+
+                        @endif
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

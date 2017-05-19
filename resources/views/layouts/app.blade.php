@@ -71,7 +71,15 @@
                                         </form>
                                     </li>
                                 </ul>
+
                             </li>
+                            @if (Auth::User()->role == 'admin')
+                                <li>
+                                    <a href="/register" aria-expanded="false">
+                                        Registrar Usuario
+                                    </a>
+                                </li>
+                            @endif
                         @endif
                     </ul>
                 </div>
